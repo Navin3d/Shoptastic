@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css" >
+    <script src="https://kit.fontawesome.com/f6369706ad.js" crossorigin="anonymous"></script>
+    <title>Shoptastic</title>
+</head>
+<body id="bdy">
+<!-- <p><b>Online Oil Mart -- Feel Free to Shop</b></p> -->
+<div class="topbar" >
+    <div id="t1">
+        <ul>
+
+            <a href="#" id="logo"><b>Shoptastic</b></a>
+            <!-- <img src="logooil.jpg" alt="logo" id="logo" > -->
+            <li><a href="#" >Home</a></li>
+            <!-- <li><a href="#" >Shop</a></li> -->
+            <li><a href="#" >About</a></li>
+            <li><a href="#" >Sign Up</a></li>
+            <li><a href="https://arul-murugan-r.github.io/webnisite.com/work.html" >Login</a></li>
+            <i class="fas fa-bars" id="menu"></i>
+            <li><i class="far fa-bell"></i></li>
+            <li><i class="fas fa-shopping-cart"></i></li>
+            <li><i class="far fa-address-card"></i></li>
+        </ul>
+    </div>
+</div><br>
+<div id="alt" class="hide">
+    <li><a href="#" >Home</a></li>
+    <li><a href="#" >Shop</a></li>
+    <li><a href="#" >About</a></li>
+    <li><a href="#" >Sign Up</a></li>
+    <li><a href="/login" >Login</a></li>
+</div>
+<div class="center" >
+    <input type="text" placeholder="Search" id="sea" >
+    <button id="icons" ><i class="fas fa-search"></i></button>
+    <button id="btn"><a href="#bottom">Bottom</a></button>
+
+</div>
+<div id="cards" class="right">
+    <div class="card" th:remove="all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuWivaQ3qbYdXMaxwd8xcSccY9R-s6HyHTAw&usqp=CAU" alt="img" class="img" >
+        <a href="#">Computers And Accessories</a><br><br>
+        <label><b>50+ Accessories</b></label>
+    </div>
+    <div class="card" th:remove="all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvUv97qiNMT4oB1OP9jRn0uryjOUwVwdX73w&usqp=CAU" alt="img" class="img" >
+        <a href="#">Best Offer With Major Discounts</a><br><br>
+        <label><b>Faster Booking</b></label>
+    </div>
+    <div class="card" th:remove="all">
+        <img src="https://thespuzz.s3.ap-south-1.amazonaws.com/thespuzz/uploads/2021/03/04153909/5-Furniture-setup-rules-to-make-your-space-look-bigger.jpg" alt="img" class="img" >
+        <a href="#">Great Offers On Furnitures</a><br><br>
+        <label><b>More Stock Available</b></label>
+    </div>
+    <div class="card" th:remove="all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpSpdXvxpLZsV5x0vhn6tsekjsDfpfjVKlUQ&usqp=CAU" alt="img" class="img" >
+        <a href="#">Mens Footwear</a><br><br>
+        <label><b>With N no of Designs</b></label>
+    </div>
+    <div class="card" th:remove="all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS79hMsbTqkzeVT1RiYeNO7dXrx_ffBtQOk1w&usqp=CAU" alt="img" class="img" >
+        <a href="#">Masalas Both Industry and Home made</a><br><br>
+        <label><b>Stocks With Nice Quality</b></label>
+    </div>
+    <div class="card" th:remove="all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnByhyksvuHrTxDmhwsWgHMBexf3hseJTzZQ&usqp=CAU" alt="img" class="img" >
+        <a href="#">Top Picks On Men's Clothing</a><br><br>
+        <label><b>High Quality with low price</b></label>
+    </div>
+    <div class="card" th:remove="all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHDmoOdOyGLKXo8zbbhAcz-70mn1JwKMTchA&usqp=CAU" alt="img" class="img" >
+        <a href="#">Beauty And Toys</a><br><br>
+        <label><b>Exicting Toys For Kids</b></label>
+    </div>
+    <div class="card" th:remove="all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAntAj5LNymswse1qBSYqWFBiqF8Q4DvCe9A&usqp=CAU" alt="img" class="img" >
+        <a href="#">Mobiles And Gadgets</a><br><br>
+        <label><b>Camera Too Available</b></label>
+    </div>
+    <div th:each="category : ${categories}" class="card">
+        <img th:src="${category.imageUrl}" alt="img" class="img" />
+        <a th:text="${category.categories}" href="#">House Hold Appliances</a><br><br>
+        <label th:text="${category.description}"><b>With Various Brands</b></label>
+    </div>
+</div>
+<!-- <div id="t2">
+    <ul>
+            <i class="far fa-bell"></i>
+            <li>Notification</li>
+            <i class="fas fa-shopping-cart"></i>
+            <li>Cart</li>
+            <i class="far fa-address-card"></i>
+            <li>Contact Us</li>
+    </ul>
+</div> -->
+<!-- Bottom -->
+<div id="bottom">
+    <button id="down"><a href="#t1">Back To Top</a></button>
+    <div id="des">
+        <label>Designed By the Tech Team : NKA</label><br>
+        <label>Websites Made By Tech Team :<a href="#"></a></label><br>
+        <label>Contact No : 4668858967</label><br>
+    </div>
+</div>
+<script th:src="@{/js/index.js}" ></script>
+<!--<script th:src="@{/js/backgroundimg.js}" ></script>-->
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" th:href="@{/css/showproducts.css}" type="text/css" >
+
+<!--    <link rel="stylesheet" th:href="@{/css/bootstrap.min.3.3.0.css}" id="bootstrap-css" type="text/css">-->
+<!--    <script th:src="@{/js/bootstrap.min.3.3.0.js}"></script>-->
+<!--    <script th:src="@{/js/jquery-1.11.1.min.js}"></script>-->
+<!--    <link rel="stylesheet" th:href="@{/css/font-awesome.4.7.0.min.css}" type="text/css">-->
+<!--    <link rel="stylesheet" th:href="@{/css/sans.css}" type="text/css">-->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body id="bdy">
+
+    <div class="arul">
+        <div class="topbar" >
+            <div id="t1">
+                <ul>
+
+                    <a href="#" id="logo"><b>Shoptastic</b></a>
+                    <!-- <img src="logooil.jpg" alt="logo" id="logo" > -->
+                    <li><a href="#" >Home</a></li>
+                    <!-- <li><a href="#" >Shop</a></li> -->
+                    <li><a href="#" >About</a></li>
+                    <li><a href="#" >Sign Up</a></li>
+                    <li><a href="https://arul-murugan-r.github.io/webnisite.com/work.html" >Login</a></li>
+                    <i class="fas fa-bars" id="menu"></i>
+                    <li><i class="far fa-bell"></i></li>
+                    <li><i class="fas fa-shopping-cart"></i></li>
+                    <li><i class="far fa-address-card"></i></li>
+                </ul>
+            </div>
+        </div><br>
+
+        <div id="alt" class="hide">
+            <li><a href="#" >Home</a></li>
+            <li><a href="#" >Shop</a></li>
+            <li><a href="#" >About</a></li>
+            <li><a href="#" >Sign Up</a></li>
+            <li><a href="https://arul-murugan-r.github.io/webnisite.com/work.html" >Login</a></li>
+        </div>
+
+        <div class="center" >
+            <button id="cat" >Categories<i class="fas fa-sort-down"></i></button>
+            <input type="text" placeholder="Search" id="sea" >
+            <button id="icons" ><i class="fas fa-search"></i></button>
+            <label>Designed By</label>
+            <button id="btn"><a href="#bottom">Bottom</a></button>
+        </div>
+    </div>
+
+<!-- products -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-4 filterpanel">
+                <div class="card">
+                    <article class="card-group-item">
+                        <header class="card-header">
+                            <h6 class="title">Range input </h6>
+                        </header>
+                        <div class="filter-content">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Min</label>
+                                        <input type="number" class="form-control" id="inputEmail4" placeholder="$0">
+                                    </div>
+                                    <div class="form-group col-md-6 text-right">
+                                        <label>Max</label>
+                                        <input type="number" class="form-control" placeholder="$1,0000">
+                                    </div>
+                                </div>
+                            </div> <!-- card-body.// -->
+                        </div>
+                    </article> <!-- card-group-item.// -->
+                    <article class="card-group-item">
+                        <header class="card-header">
+                            <h6 class="title">Selection </h6>
+                        </header>
+                        <div class="filter-content">
+                            <div class="card-body">
+                                <div class="custom-control custom-checkbox">
+                                    <span class="float-right badge badge-light round">52</span>
+                                    <input type="checkbox" class="custom-control-input" id="Check1">
+                                    <label class="custom-control-label" for="Check1">Samsung</label>
+                                </div> <!-- form-check.// -->
+
+                                <div class="custom-control custom-checkbox">
+                                    <span class="float-right badge badge-light round">132</span>
+                                    <input type="checkbox" class="custom-control-input" id="Check2">
+                                    <label class="custom-control-label" for="Check2">Black berry</label>
+                                </div> <!-- form-check.// -->
+
+                                <div class="custom-control custom-checkbox">
+                                    <span class="float-right badge badge-light round">17</span>
+                                    <input type="checkbox" class="custom-control-input" id="Check3">
+                                    <label class="custom-control-label" for="Check3">Samsung</label>
+                                </div> <!-- form-check.// -->
+
+                                <div class="custom-control custom-checkbox">
+                                    <span class="float-right badge badge-light round">7</span>
+                                    <input type="checkbox" class="custom-control-input" id="Check4">
+                                    <label class="custom-control-label" for="Check4">Other Brand</label>
+                                </div> <!-- form-check.// -->
+                            </div> <!-- card-body.// -->
+                        </div>
+                    </article> <!-- card-group-item.// -->
+                </div> <!-- card.// -->
+            </div>
+
+            <div class="col-sm-8">
+                <div class="card" th:each="product : ${products}">
+                    <div class="container-fliud">
+                        <div class="wrapper row">
+                            <div class="preview col-md-6">
+
+                                <div class="preview-pic tab-content">
+                                    <div class="tab-pane active" id="pic-1"><img th:src="${product.imageUrl}" /></div>
+<!--                                    <div class="tab-pane" id="pic-2"><img th:src="${product.imageUrl}" /></div>-->
+<!--                                    <div class="tab-pane" id="pic-3"><img th:src="${product.imageUrl}" /></div>-->
+<!--                                    <div class="tab-pane" id="pic-4"><img th:src="${product.imageUrl}" /></div>-->
+<!--                                    <div class="tab-pane" id="pic-5"><img th:src="${product.imageUrl}" /></div>-->
+                                </div>
+                                <!-- <ul class="preview-thumbnail nav nav-tabs">
+                                         <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                         <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                         <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                         <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                         <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                     </ul> -->
+
+                            </div>
+                            <div class="details col-md-6">
+                                <a th:href="@{'product/' + ${product.id + '/show'}}">
+                                <h3 class="product-title" th:text="${product.name}">men's shoes fashion</h3>
+                                </a>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <span class="review-no">41 reviews</span>
+                                </div>
+                                <p class="product-description" th:text="${product.description}">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
+                                <h4 class="price">current price: <span th:text="${product.price}">$180</span></h4>
+                                <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+<!--                                <h5 class="sizes">sizes:-->
+<!--                                    <span class="size" data-toggle="tooltip" title="small">s</span>-->
+<!--                                    <span class="size" data-toggle="tooltip" title="medium">m</span>-->
+<!--                                    <span class="size" data-toggle="tooltip" title="large">l</span>-->
+<!--                                    <span class="size" data-toggle="tooltip" title="xtra large">xl</span>-->
+<!--                                </h5>-->
+<!--                                <h5 class="colors">colors:-->
+<!--                                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>-->
+<!--                                    <span class="color green"></span>-->
+<!--                                    <span class="color blue"></span>-->
+<!--                                </h5>-->
+                                <div class="action">
+                                    <a href="#"><button class="add-to-cart btn btn-default" type="button">add to cart</button></a>
+                                    <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!-- products -->
+
+    <div class="arul">
+        <div id="bottom">
+            <button id="down"><a href="#t1">Back To Top</a></button>
+            <div id="des">
+                <label>Designed By the Tech Team : NKA</label><br>
+                <label>Websites Made By Tech Team :<a href="#"></a></label><br>
+                <label>Contact No : 4668858967</label><br>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
